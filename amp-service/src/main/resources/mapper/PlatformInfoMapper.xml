@@ -48,6 +48,7 @@
         SELECT COUNT(1) FROM amp_platform_info
         <where>
             <if test="name != null and name != ''"> and name = #{name}</if>
+            <if test="id != null and id != ''"> and id = #{id}</if>
         </where>
     </select>
 

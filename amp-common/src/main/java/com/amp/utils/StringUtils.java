@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * 字符串格式化工具
  *
- * @author 陈新萍
+ * @author guoyu
  */
 public final class StringUtils extends org.apache.commons.lang3.StringUtils {
     private StringUtils() {

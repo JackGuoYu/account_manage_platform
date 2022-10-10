@@ -9,6 +9,8 @@ public interface IPlatformInfoService {
 
     void add(PlatformInfoDTO dto);
 
+    void update(PlatformInfoDTO dto);
+
     List<PlatformInfoVO> list(PlatformInfoDTO dto);
 
 }

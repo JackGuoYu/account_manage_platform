@@ -35,7 +35,6 @@ pagehelper:
   supportMethodsArguments: true
   params: count=countSql
 
-shiro:
-  enable: false
+user:
   inactive-time: 108000
 

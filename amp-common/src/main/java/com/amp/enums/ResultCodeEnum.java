@@ -16,6 +16,7 @@ public enum ResultCodeEnum {
     FAIL("500", "提交失败"),
     RETRY_ERROR("501", "系统繁忙,请稍后重试"),
     ILLEGAL_ARGUMENT("8001", "参数非法"),
+    UN_AUTHENTICATED("9001", "用户没有登录"),
 
     /**
      * 系统异常
@@ -31,6 +32,12 @@ public enum ResultCodeEnum {
     OPENID_BIND_ERROR("7002", "openid绑定错误"),
     USER_EXIST_PHONE_ERROR("7003", "用户手机号已存在"),
 
+    /**
+     * 上传文件
+     */
+    DOC_FILE_EMPTY("9109", "文件为空"),
+    DOC_FILE_OVERSIZE("9110", "文件太大"),
+    DOC_FILE_TYPE_UNSUPPORTED("9111", "文件类型不支持"),
     ;
     private String code;
     private String msg;

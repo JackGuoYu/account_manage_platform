@@ -1,16 +1,22 @@
 package com.amp.service.impl;
 
+import com.amp.converter.PlatformAccountInfoConverter;
+import com.amp.domain.PlatformAccountInfo;
 import com.amp.domain.PlatformInfo;
+import com.amp.dto.PlatformAccountInfoDTO;
 import com.amp.enums.StatusEnum;
 import com.amp.exception.AmpException;
 import com.amp.mapper.PlatformAccountInfoMapper;
 import com.amp.mapper.PlatformInfoMapper;
 import com.amp.service.IPlatformAccountService;
+import com.amp.utils.UserUtils;
 import com.amp.utils.StringUtils;
 import com.amp.vo.UserAccountVO;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * 平台账户服务
@@ -40,5 +46,12 @@ public class PlatformAccountServiceImpl implements IPlatformAccountService {
             //todo 解密密码
         }
         return vo;
+    }
+
+    @Override
+    public List<UserAccountVO> list(PlatformAccountInfoDTO dto) {
+        PlatformAccountInfo platformAccountInfo = PlatformAccountInfoConverter.INSTANCE.dto2domain(dto);
+        platformAccountInfo.setUserId(UserUtils.getUserId());
+        return platformAccountInfoMapper.selectAccountList(platformAccountInfo);
     }
 }

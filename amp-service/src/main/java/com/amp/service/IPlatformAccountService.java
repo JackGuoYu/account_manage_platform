@@ -1,6 +1,9 @@
 package com.amp.service;
 
+import com.amp.dto.PlatformAccountInfoDTO;
 import com.amp.vo.UserAccountVO;
+
+import java.util.List;
 
 public interface IPlatformAccountService {
 
@@ -10,4 +13,11 @@ public interface IPlatformAccountService {
      * @return
      */
     UserAccountVO getAccount(String platformId);
+
+    /**
+     * 查询帐号列表
+     * @param dto
+     * @return
+     */
+    List<UserAccountVO> list(PlatformAccountInfoDTO dto);
 }

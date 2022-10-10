@@ -1,7 +1,7 @@
 package com.amp.domain;
 
 
-import com.amp.utils.ShiroUtils;
+import com.amp.utils.UserUtils;
 import com.amp.utils.SnowflakeIdFactory;
 import lombok.Getter;
 import lombok.Setter;
@@ -75,12 +75,12 @@ public class BaseEntity implements Serializable {
     }
 
     public String initCreated() {
-        this.createdBy = ShiroUtils.getUserName();
+        this.createdBy = UserUtils.getUserName();
         return this.createdBy;
     }
 
     public String initUpdated() {
-        this.updatedBy = ShiroUtils.getUserName();
+        this.updatedBy = UserUtils.getUserName();
         return this.updatedBy;
     }
 

@@ -4,6 +4,7 @@ import com.amp.converter.PlatformInfoConverter;
 import com.amp.domain.PlatformInfo;
 import com.amp.dto.PlatformInfoDTO;
 import com.amp.enums.StatusEnum;
+import com.amp.exception.AmpException;
 import com.amp.mapper.PlatformInfoMapper;
 import com.amp.service.IPlatformInfoService;
 import com.amp.vo.PlatformInfoVO;
@@ -28,8 +29,22 @@ public class PlatformInfoServiceImpl implements IPlatformInfoService {
     @Override
     public void add(PlatformInfoDTO dto) {
         PlatformInfo platformInfo = PlatformInfoConverter.INSTANCE.dto2domain(dto);
+        int count = platformInfoMapper.isExists(platformInfo);
+        if(count == 1){
+            throw new AmpException("该平台已存在");
+        }
         platformInfo.preInsert();
         platformInfoMapper.insert(platformInfo);
+    }
+
+    @Override
+    public void update(PlatformInfoDTO dto) {
+        PlatformInfo platformInfo = PlatformInfoConverter.INSTANCE.dto2domain(dto);
+        int count = platformInfoMapper.isExists(platformInfo);
+        if(count == 0){
+            throw new AmpException("该平台不存在");
+        }
+        platformInfoMapper.update(platformInfo);
     }
 
     @Override

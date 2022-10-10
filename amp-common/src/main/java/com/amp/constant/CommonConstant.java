@@ -57,4 +57,14 @@ public class CommonConstant {
      * 默认用户密码
      */
     public final static String USER_DEFAULT_PASSWD = "123456";
+
+    /**
+     * 用户文件路径分隔符
+     */
+    public final static String PATH_SEPARATOR = "/";
+
+    /**
+     * 用户文件扩展名分隔符
+     */
+    public final static String EXTEND_SEPARATOR = ".";
 }

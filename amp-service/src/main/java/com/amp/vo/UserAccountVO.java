@@ -30,4 +30,7 @@ public class UserAccountVO {
 
     @ApiModelProperty(value = "平台图标")
     private byte[] icon;
+
+    @ApiModelProperty(value = "帐号状态")
+    private String status;
 }
