@@ -1,0 +1,9 @@
+
+-- 初始化类目表
+INSERT INTO `amp`.`amp_category_info` (`id`, `name`, `description`, `created_by`, `create_time`, `updated_by`, `update_time`) VALUES ('362647204717957120', '工具', '工具', 'system', '2022-09-27 17:10:31', 'system', '2022-09-27 17:10:31');
+INSERT INTO `amp`.`amp_category_info` (`id`, `name`, `description`, `created_by`, `create_time`, `updated_by`, `update_time`) VALUES ('362647286947287040', '办公', '办公', 'system', '2022-09-27 17:10:51', 'system', '2022-09-27 17:10:51');
+INSERT INTO `amp`.`amp_category_info` (`id`, `name`, `description`, `created_by`, `create_time`, `updated_by`, `update_time`) VALUES ('362647316424855552', '视频', '视频', 'system', '2022-09-27 17:10:58', 'system', '2022-09-27 17:10:58');
+INSERT INTO `amp`.`amp_category_info` (`id`, `name`, `description`, `created_by`, `create_time`, `updated_by`, `update_time`) VALUES ('362647360553127936', '音乐', '音乐', 'system', '2022-09-27 17:11:08', 'system', '2022-09-27 17:11:08');
+INSERT INTO `amp`.`amp_category_info` (`id`, `name`, `description`, `created_by`, `create_time`, `updated_by`, `update_time`) VALUES ('362647393239339008', '游戏', '游戏', 'system', '2022-09-27 17:11:16', 'system', '2022-09-27 17:11:16');
+INSERT INTO `amp`.`amp_category_info` (`id`, `name`, `description`, `created_by`, `create_time`, `updated_by`, `update_time`) VALUES ('362647426709884928', '购物', '购物', 'system', '2022-09-27 17:11:24', 'system', '2022-09-27 17:11:24');
+INSERT INTO `amp`.`amp_category_info` (`id`, `name`, `description`, `created_by`, `create_time`, `updated_by`, `update_time`) VALUES ('362647456673992704', '其他', '其他', 'system', '2022-09-27 17:11:31', 'system', '2022-09-27 17:11:31');

@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/amp?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    auto-commit: true
+    connection-test-query: SELECT 1
+    connection-timeout: 15000
+    idle-timeout: 30000
+    max-lifetime: 120000
+    maximum-pool-size: 20
+    minimum-idle: 10
+    pool-name: DatebookHikariCP
+
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+    ## 连接超时时间（毫秒）
+    timeout: 5000
+    database: 0
+
+swagger:
+  enable: true
+
+wechat:
+  appid: wxc5439dc7a26505c2
+  appSecret: 0a1c8011e28e6676fcdfcf19433f9534

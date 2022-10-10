@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--日志配置-->
+<configuration >
+    <!--通过配置文件定义属性 -->
+    <property name="maxFileSize" value="50MB"/>
+    <substitutionProperty name="log.base" value="${user.dir}/amp-service/logs" />
+    <!--定义并描述一个日志的输出属性-->
+    <!--控制台日志-->
+    <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS}|[%thread] %X{requestId} %X{channelType} %X{userId} %-5level |%logger{36}-[%file:%line]- %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+    <!--  滚动文件日志  -->
+    <appender name="fileLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <!--  日志输出格式:  时间 线程 请求id 渠道类型 日志级别 类名字 日志内容 -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS}|[%thread] %X{requestId} %X{channelType} %X{userId} %-5level |%logger{36}-[%file:%line]- %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${log.base}/cdms-%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
+            <!--活动日志文件最大值，超过这个值将产生新日志文件-->
+            <maxFileSize>${maxFileSize}</maxFileSize>
+            <!--只保留最近60天的日志-->
+            <maxHistory>60</maxHistory>
+        </rollingPolicy>
+    </appender>
+    <!-- 异步输出 -->
+    <appender name="ASYNC-CONSOLE" class="ch.qos.logback.classic.AsyncAppender">
+        <!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
+        <discardingThreshold>0</discardingThreshold>
+        <!-- 更改默认的队列的深度,该值会影响性能.默认值为256 -->
+        <queueSize>256</queueSize>
+        <!-- 添加附加的appender,最多只能添加一个 -->
+        <appender-ref ref="consoleLog"/>
+    </appender>
+    <appender name="ASYNC-CONSOLE" class="ch.qos.logback.classic.AsyncAppender">
+        <!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
+        <discardingThreshold>0</discardingThreshold>
+        <!-- 更改默认的队列的深度,该值会影响性能.默认值为256 -->
+        <queueSize>256</queueSize>
+        <!-- 添加附加的appender,最多只能添加一个 -->
+        <appender-ref ref="fileLog"/>
+    </appender>
+    <!--创建一个具体的日志输出-->
+    <!--myibatis log configure 输出sql语句-->
+    <logger name="com.amp.mapper" level="debug" additivity="false">
+        <appender-ref ref="consoleLog"/>
+        <appender-ref ref="fileLog"/>
+    </logger>
+    <logger name="org.apache.shiro" additivity="true">
+        <level value="info" />
+    </logger>
+
+    <!--基础的日志输出-->
+    <root level="info">
+        <appender-ref ref="consoleLog"/>
+        <appender-ref ref="fileLog"/>
+    </root>
+    <logger name="com.netflix.discovery" additivity="true">
+        <level value="warn" />
+    </logger>
+</configuration>

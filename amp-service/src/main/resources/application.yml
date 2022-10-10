@@ -1,0 +1,41 @@
+server:
+  port: 9111
+  servlet:
+    context-path: /amp
+
+spring:
+  application:
+    name: amp-service
+
+  profiles:
+    active: dev
+
+#logging:
+#  config: classpath:logback.xml
+
+mybatis-plus:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  type-aliases-package: com.amp.domain
+  mapper-locations: classpath*:/mapper/*.xml
+  config-location: classpath:/mybatis-config/mybatis-config.xml
+
+#mybatis:
+#  # mybatis配置实体类的路径
+#  type-aliases-package: com.amp.domain
+#  # mybatis配置mapper.xml路径
+#  mapper-locations: classpath*:/mapper/*.xml
+#  # mybatis全局配置的路径
+#  config-location: classpath:/mybatis-config/mybatis-config.xml
+
+
+pagehelper:
+  helperDialect: com.amp.page.PageHelperDialect
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+shiro:
+  enable: false
+  inactive-time: 108000
+
