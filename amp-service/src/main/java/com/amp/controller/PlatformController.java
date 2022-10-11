@@ -1,5 +1,7 @@
 package com.amp.controller;
 
+import com.amp.annotation.ApiExt;
+import com.amp.annotation.Lock;
 import com.amp.converter.PlatformInfoConverter;
 import com.amp.domain.Result;
 import com.amp.dto.PlatformInfoDTO;
@@ -60,9 +62,10 @@ public class PlatformController extends BaseController{
         return Result.success(platformAccountService.getAccount(platformId));
     }
 
+    @Lock
     @ApiOperation(value = "新增平台信息", notes = "新增平台信息")
     @PostMapping("/add")
-    public Result<Void> add(@RequestBody PlatformInfoRequest request) {
+    public Result<Void> add(@ApiExt(ignore = {"id"}) @RequestBody PlatformInfoRequest request) {
         ParamsUtils.checkParamsIsNull(request.getName(), "平台名称不能为空");
         ParamsUtils.checkParamsIsNull(request.getCategoryId(), "类目ID不能为空");
         PlatformInfoDTO dto = PlatformInfoConverter.INSTANCE.request2dto(request);
@@ -70,9 +73,10 @@ public class PlatformController extends BaseController{
         return Result.success();
     }
 
+    @Lock
     @ApiOperation(value = "更新平台信息", notes = "更新平台信息")
     @PostMapping("/update")
-    public Result<Void> update(@RequestBody PlatformInfoRequest request) {
+    public Result<Void> update(@ApiExt(ignore = {"icon"}) @RequestBody PlatformInfoRequest request) {
         ParamsUtils.checkParamsIsNull(request.getName(), "平台名称不能为空");
         ParamsUtils.checkParamsIsNull(request.getCategoryId(), "类目ID不能为空");
         PlatformInfoDTO dto = PlatformInfoConverter.INSTANCE.request2dto(request);

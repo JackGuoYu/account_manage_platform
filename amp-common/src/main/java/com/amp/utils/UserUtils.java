@@ -24,7 +24,7 @@ public class UserUtils {
             userName = userInfo.getNickname();
         }
 
-        if(StringUtils.isNotEmpty(userName)){
+        if(StringUtils.isEmpty(userName)){
             userName = CommonConstant.SYSTEM_NAME;
         }
         return userName;

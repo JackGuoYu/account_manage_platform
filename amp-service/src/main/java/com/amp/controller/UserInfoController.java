@@ -1,10 +1,14 @@
 package com.amp.controller;
 
+import com.amp.annotation.ApiExt;
 import com.amp.converter.UserInfoConverter;
 import com.amp.domain.Result;
+import com.amp.domain.UserInfo;
 import com.amp.dto.UserInfoDTO;
+import com.amp.request.LoginRequest;
 import com.amp.request.UserInfoQueryRequest;
 import com.amp.request.UserInfoRequest;
+import com.amp.service.ICommonService;
 import com.amp.service.IUserInfoService;
 import com.amp.vo.UserInfoVO;
 import com.github.pagehelper.PageInfo;
@@ -35,6 +39,9 @@ public class UserInfoController extends BaseController{
     @Autowired
     private IUserInfoService userService;
 
+    @Autowired
+    private ICommonService commonService;
+
     @ApiOperation("新增用户信息")
     @PostMapping("/add")
     public Result<Void> addUser(@RequestBody UserInfoRequest request) {
@@ -50,6 +57,13 @@ public class UserInfoController extends BaseController{
         UserInfoDTO dto = UserInfoConverter.INSTANCE.request2dto(request);
         List<UserInfoVO> list = userService.list(dto);
         return Result.success(getPageInfo(list));
+    }
+
+    @ApiOperation("用户登录接口，用于测试联调使用")
+    @PostMapping("/login")
+    public Result<UserInfoVO> login(@ApiExt(ignore = {"password", "code"})  @RequestBody LoginRequest request) {
+        UserInfo userInfo = commonService.login(request);
+        return Result.success(UserInfoConverter.INSTANCE.domain2vo(userInfo));
     }
 
 }

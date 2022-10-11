@@ -40,10 +40,11 @@ public class PlatformInfoServiceImpl implements IPlatformInfoService {
     @Override
     public void update(PlatformInfoDTO dto) {
         PlatformInfo platformInfo = PlatformInfoConverter.INSTANCE.dto2domain(dto);
-        int count = platformInfoMapper.isExists(platformInfo);
-        if(count == 0){
+        PlatformInfo old = platformInfoMapper.selectById(dto.getId());
+        if(old == null){
             throw new AmpException("该平台不存在");
         }
+        platformInfo.preUpdate();
         platformInfoMapper.update(platformInfo);
     }
 

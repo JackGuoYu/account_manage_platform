@@ -23,9 +23,9 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `amp_account_extend`;
 CREATE TABLE `amp_account_extend` (
   `id` varchar(32)   NOT NULL,
-  `account_id` varchar(32)   NOT NULL COMMENT '用户帐号',
-  `use_count` bigint(20) NOT NULL COMMENT '帐号使用次数',
-  `total_income` decimal(20,2) NOT NULL COMMENT '帐号收益',
+  `account_id` varchar(32) NOT NULL COMMENT '用户帐号id',
+  `use_count` bigint(20) NOT NULL DEFAULT 0 COMMENT '帐号使用次数',
+  `total_income` decimal(20, 2) NOT NULL DEFAULT 0.00 COMMENT '帐号收益',
   `created_by` varchar(32)   NOT NULL COMMENT '创建人',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `updated_by` varchar(32)   NOT NULL COMMENT '更新人',
@@ -82,7 +82,7 @@ CREATE TABLE `amp_platform_account_info` (
   `user_name` varchar(200)   NOT NULL COMMENT '用户帐号',
   `password` varchar(128)   NOT NULL COMMENT '密码',
   `platform_id` varchar(32)   NOT NULL COMMENT '平台id',
-  `status` varchar(10)   NOT NULL COMMENT 'draft-草稿 approve-审批 active-激活 invalid-失效',
+  `status` varchar(10)   NOT NULL DEFAULT 'draft'  COMMENT 'draft-草稿 approve-审批 active-激活 invalid-失效',
   `price` decimal(20,2) NOT NULL COMMENT '原价',
   `user_id` varchar(32)   NOT NULL COMMENT '用户id',
   `end_time` datetime DEFAULT NULL COMMENT '截止时间',

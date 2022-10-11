@@ -3,7 +3,6 @@ package com.amp.dto;
 import lombok.Data;
 
 import java.math.BigDecimal;
-import java.sql.Timestamp;
 
 /**
  * 平台管理DTO
@@ -14,6 +13,9 @@ import java.sql.Timestamp;
  */
 @Data
 public class PlatformAccountInfoDTO {
+
+    //id
+    private String id;
 
     //用户帐号
     private String userName;
@@ -34,5 +36,5 @@ public class PlatformAccountInfoDTO {
     private String userId;
 
     //截止时间
-    private Timestamp endTime;
+    private Long expireTime;
 }

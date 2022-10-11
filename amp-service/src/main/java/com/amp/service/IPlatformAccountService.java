@@ -20,4 +20,16 @@ public interface IPlatformAccountService {
      * @return
      */
     List<UserAccountVO> list(PlatformAccountInfoDTO dto);
+
+    /**
+     * 新增帐号信息
+     * @param dto
+     */
+    void add(PlatformAccountInfoDTO dto);
+
+    /**
+     * 更新帐号信息
+     * @param dto
+     */
+    void update(PlatformAccountInfoDTO dto);
 }

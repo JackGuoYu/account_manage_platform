@@ -11,7 +11,7 @@ import lombok.Data;
  * @date 2022/10/8 10:51 上午
  */
 @Data
-public class PlatformInfoRequest {
+public class PlatformInfoRequest extends BaseRequest{
 
     @ApiModelProperty(value = "平台名称")
     private String name;

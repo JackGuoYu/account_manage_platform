@@ -27,9 +27,6 @@ public class UserInfoVO implements Serializable {
     @ApiModelProperty(value = "用户描述信息")
     private String description;
 
-    @ApiModelProperty(value = "用户密码")
-    private String password;
-
     @ApiModelProperty(value = "用户头像")
     private byte[] avatarImage;
 }

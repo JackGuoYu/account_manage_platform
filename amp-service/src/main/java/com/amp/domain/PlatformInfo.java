@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 平台信息
  *
@@ -14,7 +16,9 @@ import lombok.Data;
 @TableName("amp_platform_info")
 @Data
 @ApiModel(value = "PlatformInfo对象", description = "平台信息表")
-public class PlatformInfo extends BaseEntity{
+public class PlatformInfo extends BaseEntity implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
      //平台名称
     private String name;

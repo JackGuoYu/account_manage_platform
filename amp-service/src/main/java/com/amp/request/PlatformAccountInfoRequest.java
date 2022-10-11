@@ -4,7 +4,6 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.math.BigDecimal;
-import java.sql.Timestamp;
 
 /**
  * 平台管理DTO
@@ -14,7 +13,7 @@ import java.sql.Timestamp;
  * @date 2022/10/8 10:51 上午
  */
 @Data
-public class PlatformAccountInfoRequest {
+public class PlatformAccountInfoRequest extends BaseRequest{
 
     @ApiModelProperty(value = "用户帐号")
     private String userName;
@@ -31,9 +30,6 @@ public class PlatformAccountInfoRequest {
     @ApiModelProperty(value = "原价")
     private BigDecimal price;
 
-    @ApiModelProperty(value = "用户Id")
-    private String userId;
-
-    @ApiModelProperty(value = "截止时间")
-    private Timestamp endTime;
+    @ApiModelProperty(value = "截止时间,时间戳")
+    private Long expireTime;
 }

@@ -18,6 +18,12 @@
             <artifactId>commons-lang3</artifactId>
         </dependency>
 
+        <!--    aop切面    -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
 
         <!--  mybatis-spring-boot-starter  -->
 <!--        <dependency>-->

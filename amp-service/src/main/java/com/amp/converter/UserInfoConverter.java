@@ -20,5 +20,7 @@ public interface UserInfoConverter {
 
     UserInfo dto2domain(UserInfoDTO source);
 
+    UserInfoVO domain2vo(UserInfo source);
+
     List<UserInfoVO> domain2vo(List<UserInfo> source);
 }

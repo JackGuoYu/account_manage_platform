@@ -40,9 +40,11 @@ public class LoginInterceptor implements HandlerInterceptor {
         //白名单路径
         passUrls = new String[]{
                 "/amp/wechat/",
+                "/amp/user/login",
                 "/amp/doc.html",
                 "/amp/doc.html/",
                 "/amp/swagger-resources",
+                "/amp/webjars/"
         };
     }
 

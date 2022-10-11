@@ -12,6 +12,9 @@ import lombok.Data;
 @Data
 public class PlatformInfoDTO {
 
+    //主键id
+    private String id;
+
      //平台名称
     private String name;
 
